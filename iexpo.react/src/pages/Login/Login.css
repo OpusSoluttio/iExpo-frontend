@@ -1,0 +1,134 @@
+*{
+    margin : 0;
+    padding : 0;
+    font-family : "Baloo 2"
+}
+
+@font-face{
+    font-family: "Baloo 2";
+    src: url("../../assets//fonts//Baloo2/Baloo2-Regular.ttf");
+
+    font-family: "Baloo 2 Medium";
+    src: url("../../assets//fonts//Baloo2/Baloo2-Medium.ttf");
+
+    font-family: "Baloo 2 SemiBold";
+    src: url("../../assets//fonts//Baloo2/Baloo2-SemiBold.ttf");
+
+    font-family: "Baloo 2 Bold";
+    src: url("../../assets//fonts//Baloo2/Baloo2-Bold.ttf");
+
+    font-family: "Baloo 2 ExtraBold";
+    src: url("../../assets//fonts//Baloo2/Baloo2-ExtraBold.ttf");
+}
+
+.Login{
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(to bottom right, #97d3f3, #015281);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Login main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+}
+
+.logo{
+    width: 50%;
+}
+
+.Login main p{
+    text-align: center;
+    color: #FFF;
+    font-size: 1.7em;
+    margin-bottom: 0.5em;
+}
+
+.login-form{
+    width: 95%;
+    height: 25vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+}
+
+.text-input{
+    padding: 0;
+    border: 0;
+    border-bottom: 3px solid #00324D;
+    background: none;
+    color: #fff;
+    font-family: "Baloo 2 SemiBold";
+    font-size: 1.2em;
+
+    /* padding: 0 0.5em; */
+
+}
+
+.text-input::placeholder{
+    color: #FFFFFF;
+}
+
+.text-input:focus{
+    background: none;
+    border-bottom: 3px solid #ffffff;
+    transition: ease-in-out 0.3s
+}
+
+.submit{
+    padding: 0.25em;
+    background-color : #00324D;
+    color: #fff;
+    font-size: 1.2em;
+
+    border: 0.1px solid #00324D;
+    border-radius: 5px;
+}
+
+.submit:hover{
+    margin-bottom: 1px;
+    /* background-color: #FFF; */
+    box-shadow: #ffffff73 3px 5px 10px;
+    /* color: #00324D; */
+    transition: ease-in-out 0.1s;
+}
+
+.error-modal{
+    min-height: 10vh;
+    min-width: 100vh;
+}
+
+.error-title{
+    color: #99111a;
+    font-family: "Baloo 2 ExtraBold";
+    font-size: 2em;
+}
+
+.error-description{
+    text-align: justify;
+}
+
+
+
+
+
+/* & label.Mui-focused': {
+    color: 'green',
+  },
+  '& .MuiInput-underline:after': {
+    borderBottomColor: 'green',
+  },
+  '& .MuiOutlinedInput-root': {
+    '& fieldset': {
+      borderColor: 'red',
+    },
+    '&:hover fieldset': {
+      borderColor: 'yellow',
+    },
+    '&.Mui-focused fieldset': {
+      borderColor: 'green', */
