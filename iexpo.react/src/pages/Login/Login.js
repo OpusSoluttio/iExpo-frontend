@@ -14,7 +14,7 @@ export default class Login extends Component {
         this.state = {
             email: "",
             senha: "",
-            erro: false,
+            erro: true,
             mensagemRetorno: "",
         }
     }
@@ -86,22 +86,25 @@ export default class Login extends Component {
 
                     <form className="login-form" onSubmit={this.efetuarLogin} method="POST">
                         <input type="email"
+                            className="text-input efeito"
                             autoComplete="off"
                             onChange={this.atualizarInputs}
                             id="email"
                             name="email"
-                            className="text-input"
                             placeholder="Email"
                             required />
 
+                            <span className="focus-border" />
+
                         <input type="password"
+                            className="text-input efeito_2"
                             onChange={this.atualizarInputs}
                             id="senha"
                             name="senha"
-                            className="text-input"
                             placeholder="Senha"
                             required />
 
+                            <span className="focus-border_2" />
 
 
                         {/* <TextField

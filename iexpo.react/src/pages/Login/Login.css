@@ -21,8 +21,10 @@
     src: url("../../assets//fonts//Baloo2/Baloo2-ExtraBold.ttf");
 }
 
+
+
 .Login{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background-image: linear-gradient(to bottom right, #97d3f3, #015281);
     display: flex;
@@ -35,56 +37,89 @@
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    width: 25%;
+    width: 30%;
+    max-height: 80vh;
+    margin-top: -3em;
 }
 
 .logo{
-    width: 50%;
+    width: 55%;
 }
 
 .Login main p{
     text-align: center;
     color: #FFF;
-    font-size: 1.7em;
-    margin-bottom: 0.5em;
+    font-size: 2.5em;
+    height: 100%;
+    margin: -0.3em 0 0.5em 0;
 }
 
 .login-form{
-    width: 95%;
-    height: 25vh;
+    width: 93%;
+    height: 14em;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
 }
 
 .text-input{
+    outline: none;
     padding: 0;
     border: 0;
     border-bottom: 3px solid #00324D;
     background: none;
     color: #fff;
-    font-family: "Baloo 2 SemiBold";
-    font-size: 1.2em;
-
-    /* padding: 0 0.5em; */
-
+    font-family: "Baloo 2",sans-serif;
+    font-size: 1.7em;
 }
+
+                                                        /* FIX ME */
+
+.efeito ~ .focus-border{
+    position: relative;
+    bottom: 7%;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: #FFF;
+    border-bottom:0px;
+    transition: 0.4s;
+}
+.efeito:focus ~ .focus-border{
+    outline: none;
+    width: 100%;
+    transition: 0.6s; 
+    left: 0;
+}
+
+.efeito_2 ~ .focus-border_2{
+    position: relative;
+    bottom: 7%;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background-color: #fff;
+    transition: 0.4s;
+}
+.efeito_2:focus ~ .focus-border_2{
+    outline: none;
+    width: 100%;
+    transition: 0.6s; 
+    left: 0;
+}
+
+
+
 
 .text-input::placeholder{
     color: #FFFFFF;
-}
-
-.text-input:focus{
-    background: none;
-    border-bottom: 3px solid #ffffff;
-    transition: ease-in-out 0.3s
 }
 
 .submit{
     padding: 0.25em;
     background-color : #00324D;
     color: #fff;
-    font-size: 1.2em;
+    font-size: 2em;
 
     border: 0.1px solid #00324D;
     border-radius: 5px;
@@ -113,7 +148,154 @@
     text-align: justify;
 }
 
+@media only screen and (max-width: 1700px){
+    .Login main{
+        width: 30%;
+    }
 
+    .Login main p{
+        font-size: 2.3em;
+    }
+}
+
+
+@media only screen and (max-width: 1450px){
+    .Login main p{
+        font-size: 1.6em;
+    }
+
+    .Login main{
+        width: 25%;
+    }
+
+    /* .logo{
+        width: 50%;
+    } */
+
+    .login-form{
+        width: 90%;
+        height: 9em;
+    }
+
+    .text-input{
+        font-size: 1.2em;
+        border-bottom: 3px solid #00324D;
+    }
+
+    .submit{
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 1290px){
+    .Login main p{
+        font-size: 1.3em;
+    }
+}
+
+
+@media only screen and (max-width: 1100px){
+    .Login main{
+        width: 50%;
+    }
+
+    .Login main p{
+        font-size: 2.5em;
+    }
+
+    .logo{
+        width: 60%;
+    }
+
+    .login-form{
+        width: 100%;
+        height: 15em;
+    }
+
+    .submit{
+        font-size: 1.75em;
+    }
+
+    .text-input{
+        font-size: 2em;
+    }
+
+    .error-modal{
+        min-height: 20vh;
+        min-width: 40vh;
+    }
+}
+
+
+@media only screen and (max-width: 800px){
+    .Login main p{
+        font-size: 1.95em;
+    }
+
+    .login-form{
+        height: 12em;
+    }
+
+    .text-input{
+        font-size: 1.5em;
+    }
+}
+
+
+@media only screen and (max-width: 500px){
+    .Login main{
+        width: 80%;
+    }
+
+    .Login main p{
+        font-size: 1.7em;
+    }
+
+    .login-form{
+        height: 9em;
+    }
+
+    .text-input{
+        font-size: 1.2em;
+        border-bottom: 3px solid #00324D;
+    }
+
+    .submit{
+        font-size: 1.2em;
+
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .Login main p{
+        font-size: 1.4em;
+    }
+}
+
+
+
+
+
+ /* PARA O CELULAR DEITADO */
+@media only screen and (max-height: 500px){
+    .Login main{
+        flex-flow: row nowrap;
+        width: 70%;
+    }
+
+    .Login main p{
+        display: none;
+    }
+
+    .logo{
+        width: 33%;
+        margin: 0 2em;
+    }
+
+    .login-form{
+        width: 40%;
+    }
+}
 
 
 
