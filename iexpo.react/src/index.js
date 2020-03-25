@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {Route, Link, BrowserRouter, Switch, Redirect} from "react-router-dom";
 
@@ -22,7 +21,9 @@ const RotaPrivada = ({component : Component}) =>(
 const Rotas = (
   <BrowserRouter>
     <div>
-      <Route exact path="/" component={Login}/>
+      <Switch>
+        <Route exact path="/" component={Login}/>
+      </Switch>
     </div>
   </BrowserRouter>
 )
