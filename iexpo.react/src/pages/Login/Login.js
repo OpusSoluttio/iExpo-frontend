@@ -16,6 +16,10 @@ export default class Login extends Component {
             senha: "",
             erro: false,
             mensagemRetorno: "",
+
+
+            // FIX ME
+            // disableSubmit : false
         }
     }
 
@@ -31,6 +35,7 @@ export default class Login extends Component {
 
     efetuarLogin = (event) => {
         event.preventDefault();
+        // this.setState({disabled : true})
 
         if (this.state.email === null || this.state.email === "") {
             this.setState({ erro: true });
@@ -78,6 +83,7 @@ export default class Login extends Component {
                         open={this.state.erro}
                         onClose={this.fecharModal}
                         focusTrapped={false}
+                        center={true}
                         children={ <ErrorModal mensagemRetorno={this.state.mensagemRetorno} /> }
                     />
 
@@ -105,29 +111,10 @@ export default class Login extends Component {
                             required />
 
                             <span className="focus-border_2" />
-
-
-                        {/* <TextField
-                            onChange={this.atualizarInputs}
-                            name="email"
-                            id="email"
-                            className="text-input"
-                            label="Email"
-                            margin="dense"
-                            fullWidth
-                            required
-                        />
-                        <TextField
-                            onChange={this.atualizarInputs}
-                            name="senha"
-                            id="senha"
-                            className="text-input"
-                            label="Senha"
-                            margin="dense"
-                            fullWidth
-                            required
-                        /> */}
-                        <input type="submit" className="submit" value="Entrar" />
+                        <input
+                            type="submit" 
+                            className="submit" 
+                            value="Entrar"/>
                     </form>
                 </main>
             </div>
