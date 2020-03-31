@@ -24,7 +24,7 @@
 
 
 .Login{
-    min-height: 100vh;
+    height: 100vh;
     width: 100%;
     background-image: linear-gradient(to bottom right, #97d3f3, #015281);
     display: flex;
@@ -41,6 +41,7 @@
     max-height: 80vh;
     margin-top: -3em;
 }
+
 
 .logo{
     width: 55%;

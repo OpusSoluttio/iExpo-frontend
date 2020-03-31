@@ -6,7 +6,17 @@ import Modal from "react-responsive-modal";
 import ErrorModal from "../../components/ErrorModal"
 import "./Login.css";
 import Axios from 'axios';
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
+import { css } from "@emotion/core";
 
+
+const override = css`
+  display: block;
+  background-color: #000000cc;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;
 
 export default class Login extends Component {
     constructor() {
@@ -16,7 +26,7 @@ export default class Login extends Component {
             senha: "",
             erro: false,
             mensagemRetorno: "",
-
+            carregando: false,
 
             // FIX ME
             // disableSubmit : false
@@ -35,7 +45,7 @@ export default class Login extends Component {
 
     efetuarLogin = (event) => {
         event.preventDefault();
-        // this.setState({disabled : true})
+        this.setState({ carregando: true })
 
         if (this.state.email === null || this.state.email === "") {
             this.setState({ erro: true });
@@ -51,10 +61,11 @@ export default class Login extends Component {
                 senha: this.state.senha
             })
                 .then(response => {
+                    this.setState({ carregando: false, })
                     if (response.status === 200) {
                         localStorage.setItem("usuario-iexpo", response.data.token);
                         this.props.history.push('/')
-                    }else if (response.status === 404){
+                    } else if (response.status === 404) {
                         this.setState({ erro: true, mensagemRetorno: "Usuário ou Senha inválidos" });
                     } else {
                         console.log("Algo deu errado.");
@@ -63,6 +74,7 @@ export default class Login extends Component {
                     }
                 })
                 .catch(erro => {
+                    this.setState({ carregando: false, })
                     this.setState({ erro: true, mensagemRetorno: "Ocorreu um erro inesperado! Por favor, tente novamente mais tarde" });
                     console.log(erro);
                 });
@@ -73,9 +85,17 @@ export default class Login extends Component {
     //depois de testado retirar os console.log
 
 
+
     render() {
         return (
             <div className="Login">
+                <ClimbingBoxLoader
+                    loading={this.state.carregando}
+                    size={"20"}
+                    color={"#FFF"}
+                    css={override}
+                />
+
                 <main>
 
                     <Modal
@@ -84,7 +104,7 @@ export default class Login extends Component {
                         onClose={this.fecharModal}
                         focusTrapped={false}
                         center={true}
-                        children={ <ErrorModal mensagemRetorno={this.state.mensagemRetorno} /> }
+                        children={<ErrorModal mensagemRetorno={this.state.mensagemRetorno} />}
                     />
 
                     <img src={Logo} className="logo" alt="Logo da iExpo" />
@@ -100,7 +120,7 @@ export default class Login extends Component {
                             placeholder="Email"
                             required />
 
-                            <span className="focus-border" />
+                        <span className="focus-border" />
 
                         <input type="password"
                             className="text-input efeito_2"
@@ -110,11 +130,11 @@ export default class Login extends Component {
                             placeholder="Senha"
                             required />
 
-                            <span className="focus-border_2" />
+                        <span className="focus-border_2" />
                         <input
-                            type="submit" 
-                            className="submit" 
-                            value="Entrar"/>
+                            type="submit"
+                            className="submit"
+                            value="Entrar" />
                     </form>
                 </main>
             </div>
@@ -122,16 +142,3 @@ export default class Login extends Component {
     }
 }
 
-// const theme = createMuiTheme({
-//     overrides: {
-//       // Nome da folha de estilo
-//       MuiTextField, ⚛️
-//       MuiButton: {
-//         // Nome da regra
-//         text: {
-//           // Algum CSS
-//           color: 'white',
-//         },
-//       },
-//     },
-//   });
