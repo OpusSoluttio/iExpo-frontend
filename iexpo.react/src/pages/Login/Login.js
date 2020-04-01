@@ -10,14 +10,6 @@ import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/core";
 
 
-const override = css`
-  display: block;
-  background-color: #000000cc;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
-
 export default class Login extends Component {
     constructor() {
         super();
@@ -27,9 +19,6 @@ export default class Login extends Component {
             erro: false,
             mensagemRetorno: "",
             carregando: false,
-
-            // FIX ME
-            // disableSubmit : false
         }
     }
 
@@ -38,9 +27,9 @@ export default class Login extends Component {
         this.setState({ erro: false });
     }
 
-    atualizarInputs = () => {
-        this.setState({ email: document.querySelector("#email").value });
-        this.setState({ senha: document.querySelector("#senha").value });
+    atualizarInputs = (event) => {
+        event.preventDefault();
+        this.setState( {[event.target.name] : event.target.value })
     }
 
     efetuarLogin = (event) => {
@@ -91,7 +80,7 @@ export default class Login extends Component {
             <div className="Login">
                 <ClimbingBoxLoader
                     loading={this.state.carregando}
-                    size={"20"}
+                    size={"20px"}
                     color={"#FFF"}
                     css={override}
                 />
@@ -118,6 +107,7 @@ export default class Login extends Component {
                             id="email"
                             name="email"
                             placeholder="Email"
+                            maxLength={100}
                             required />
 
                         <span className="focus-border" />
@@ -128,6 +118,8 @@ export default class Login extends Component {
                             id="senha"
                             name="senha"
                             placeholder="Senha"
+                            minLength={6}
+                            maxLength={60}
                             required />
 
                         <span className="focus-border_2" />
@@ -142,3 +134,10 @@ export default class Login extends Component {
     }
 }
 
+const override = css`
+  display: block;
+  background-color: #000000cc;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`;

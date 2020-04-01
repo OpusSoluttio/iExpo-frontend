@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testa página de Login Compara componente ao snapshot 1`] = `
+<div
+  className="Login"
+>
+  <main>
+    <img
+      alt="Logo da iExpo"
+      className="logo"
+      src="logo.png"
+    />
+    <p>
+      Sistema de administradores
+    </p>
+    <form
+      className="login-form"
+      method="POST"
+      onSubmit={[Function]}
+    >
+      <input
+        autoComplete="off"
+        className="text-input efeito"
+        id="email"
+        maxLength={100}
+        name="email"
+        onChange={[Function]}
+        placeholder="Email"
+        required={true}
+        type="email"
+      />
+      <span
+        className="focus-border"
+      />
+      <input
+        className="text-input efeito_2"
+        id="senha"
+        maxLength={60}
+        minLength={6}
+        name="senha"
+        onChange={[Function]}
+        placeholder="Senha"
+        required={true}
+        type="password"
+      />
+      <span
+        className="focus-border_2"
+      />
+      <input
+        className="submit"
+        type="submit"
+        value="Entrar"
+      />
+    </form>
+  </main>
+</div>
+`;
