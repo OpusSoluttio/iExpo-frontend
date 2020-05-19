@@ -124,14 +124,14 @@
 
     border: 0.1px solid #00324D;
     border-radius: 5px;
+    transition: ease-in-out 0.2s;
+
 }
 
 .submit:hover{
-    margin-bottom: 1px;
-    /* background-color: #FFF; */
+    filter: brightness(160%);
     box-shadow: #ffffff73 3px 5px 10px;
     /* color: #00324D; */
-    transition: ease-in-out 0.1s;
 }
 
 .error-modal{

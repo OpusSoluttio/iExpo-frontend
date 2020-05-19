@@ -45,7 +45,7 @@ export default class Login extends Component {
         } else {
 
 
-            Axios.post("http://26.98.132.83:5000/api/login", {
+            Axios.post("http://localhost:5000/api/login", {
                 email: this.state.email,
                 senha: this.state.senha
             })
@@ -53,8 +53,9 @@ export default class Login extends Component {
                     this.setState({ carregando: false, })
                     if (response.status === 200) {
                         localStorage.setItem("usuario-iexpo", response.data.token);
-                        this.props.history.push('/')
-                    } else if (response.status === 404) {
+                        this.props.history.push('/');
+                        alert("deu certo")
+                    } else if (response.status == 404) {
                         this.setState({ erro: true, mensagemRetorno: "Usuário ou Senha inválidos" });
                     } else {
                         console.log("Algo deu errado.");
@@ -64,7 +65,11 @@ export default class Login extends Component {
                 })
                 .catch(erro => {
                     this.setState({ carregando: false, })
-                    this.setState({ erro: true, mensagemRetorno: "Ocorreu um erro inesperado! Por favor, tente novamente mais tarde" });
+                    if (erro.response.status == 404){
+                        this.setState({ erro: true, mensagemRetorno: "Usuário ou Senha inválidos" });
+                    } else{
+                        this.setState({ erro: true, mensagemRetorno: "Ocorreu um erro inesperado! Por favor, tente novamente mais tarde" });
+                    }
                     console.log(erro);
                 });
         }
